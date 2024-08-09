@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Set the background color to black */
+            color: white; /* Default text color */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #800080; /* Purple background */
+            color: white;
+            padding: 10px 20px;
+        }
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+        .header-left span {
+            margin: 2px 0;
+        }
+        .header-left span:nth-child(1) {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header-left span:nth-child(2),
+        .header-left span:nth-child(3) {
+            font-size: 14px;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: font-weight 0.3s, text-decoration 0.3s; /* Smooth transition */
+        }
+        .nav a:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .about-me {
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #1a1a1a; /* Dark background for contrast */
+        }
+        .about-me img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+        .about-me-text {
+            max-width: 600px;
+        }
+        .about-me-text h2 {
+            font-size: 28px;
+            margin: 0 0 10px;
+        }
+        .about-me-text p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .skills-section, .projects-section, .recommendations-section {
+            padding: 40px 20px;
+            background-color: #222; /* Slightly lighter background */
+        }
+        .skills-section h2, .projects-section h2, .recommendations-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .skill {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .skill img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .skill p {
+            margin: 0;
+            font-size: 16px;
+        }
+        .project {
+            background-color: #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .project h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .project p {
+            font-size: 14px;
+        }
+        .recommendation {
+            background-color: #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .recommendation p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .add-recommendation {
+            margin-top: 20px;
+        }
+        .add-recommendation textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+        }
+        .add-recommendation button {
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .add-recommendation button:hover {
+            background-color: #660066;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #800080;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            z-index: 1000;
+        }
+        .home-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background-image: url('home-icon.png'); /* Replace with actual home icon image path */
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Home Icon -->
+    <div class="home-icon"></div>
+
+    <div class="header">
+        <div class="header-left">
+            <span>Aditya Sharma</span>
+            <span>adityaadityasharma12345@gmail.com</span>
+            <span>+91-9462771429</span>
+        </div>
+        <div class="nav">
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#recommendations">Recommendations</a>
+        </div>
+    </div>
+
+    <div id="about" class="about-me">
+        <img src="https://th.bing.com/th/id/OIP.mFbGyMPVvvPS1w8KIrBviAHaJk?w=202&h=262&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Profile Image"> <!-- Replace with actual image path -->
+        <div class="about-me-text">
+            <h2>Aditya Sharma</h2>
+            <p>
+                I am a passionate learner with expertise in web development, focusing on front-end technologies. I have a strong foundation in HTML, CSS, and JavaScript, and enjoy creating visually appealing and user-friendly websites. My goal is to continuously grow and apply my skills to real-world projects.
+            </p>
+        </div>
+    </div>
+
+    <div id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skill">
+            <img src="https://th.bing.com/th?q=HTML+4+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="HTML"> <!-- Replace with actual skill logo path -->
+            <p>HTML</p>
+        </div>
+        <div class="skill">
+            <img src="https://th.bing.com/th?q=CSS+Logo.jpg&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="CSS"> <!-- Replace with actual skill logo path -->
+            <p>CSS</p>
+        </div>
+        <div class="skill">
+            <img src="data:image/jpeg;base64,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" alt="JavaScript"> <!-- Replace with actual skill logo path -->
+            <p>JavaScript</p>
+        </div>
+        <div class="skill">
+            <img src="https://th.bing.com/th/id/OIP.EntHChgUyirgbZ9A3zTxkAHaFj?w=204&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="React"> <!-- Replace with actual skill logo path -->
+            <p>React</p>
+        </div>
+        <div class="skill">
+            <img src="https://th.bing.com/th/id/OIP.s5j5kFK-urpNTrVLlv9-ogHaEK?w=325&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Node.js"> <!-- Replace with actual skill logo path -->
+            <p>Node.js</p>
+        </div>
+    </div>
+
+    <div id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project 1: Portfolio Website</h3>
+            <p>
+                Created a personal portfolio website using HTML, CSS, and JavaScript. The website showcases projects, skills, and a brief introduction of myself.
+            </p>
+        </div>
+        <div class="project">
+            <h3>Project 2: E-commerce Platform</h3>
+            <p>
+                Developed a fully functional e-commerce platform with product listing, shopping cart, and payment gateway integration.
+            </p>
+        </div>
+        <div class="project">
+            <h3>Project 3: Blogging System</h3>
+            <p>
+                Built a blogging system using React and Node.js that allows users to create, edit, and delete blog posts with rich text formatting.
+            </p>
+        </div>
+    </div>
+
+    <div id="recommendations" class="recommendations-section">
+        <h2>Recommendations</h2>
+        <div class="recommendation">
+            <p>"Aditya is a fantastic developer with an eye for detail. His work on our project was outstanding."</p>
+        </div>
+        <div class="recommendation">
+            <p>"Working with Aditya has been a pleasure. His ability to solve complex problems is impressive."</p>
+        </div>
+        <div class="recommendation">
+            <p>"Aditya's creativity and dedication make him an invaluable asset to any team."</p>
+        </div>
+        
+        <!-- Form to add a new recommendation -->
+        <div class="add-recommendation">
+            <textarea id="recommendation-text" placeholder="Add your recommendation..."></textarea>
+            <button onclick="addRecommendation()">Submit Recommendation</button>
+        </div>
+    </div>
+
+    <!-- Pop-up confirmation message -->
+    <div id="popup" class="popup">Thank you for submitting a recommendation!</div>
+
+    <script>
+        function addRecommendation() {
+            var text = document.getElementById('recommendation-text').value;
+            if (text.trim() !== "") {
+                var newRecommendation = document.createElement('div');
+                newRecommendation.className = 'recommendation';
+                newRecommendation.innerHTML = '<p>' + text + '</p>';
+                
+                // Append the new recommendation to the list
+                document.getElementById('recommendations').insertBefore(newRecommendation, document.querySelector('.add-recommendation'));
+                
+                // Clear the textarea
+                document.getElementById('recommendation-text').value = "";
+                
+                // Show the confirmation pop-up
+                var popup = document.getElementById('popup');
+                popup.style.display = 'block';
+                setTimeout(function() {
+                    popup.style.display = 'none';
+                }, 3000); // Hide after 3 seconds
+            }
+        }
+    </script>
+</body>
+</html>
